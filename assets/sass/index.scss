@@ -25,12 +25,37 @@ body {
         cursor: pointer;
         border: none;
         outline: none;
-        padding: 5px 10px;
-        border-radius: 8px;
+        padding: 8px 25px;
+        border-radius: 5px;
+        font-size: 20px;
+        font-weight: bold;
         transition: .2s ease-in;
+        position: relative;
+        color: #1f2637;
+        background-color: #212a3e;
+        color: #9BA4B5;
+        border: 1px solid#9BA4B5;
+
+        &::after {
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 0;
+            border-radius: inherit;
+            width: 100%;
+            height: 100%;
+            background-color: #767f926c;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: 0.3s ease-in-out;
+        }
 
         &:hover {
-            background-color: rgb(211, 209, 209);
+
+            &::after {
+                transform: scaleX(1);
+
+            }
         }
     }
 
@@ -79,6 +104,19 @@ body {
                 outline: none;
                 border: none;
             }
+        }
+    }
+
+    #result {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        #information {
+            text-align: start;
+            display: inline-flex;
+            flex-direction: column;
+            row-gap: 10px;
         }
     }
 }

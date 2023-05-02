@@ -21,12 +21,32 @@ body #startApp {
   cursor: pointer;
   border: none;
   outline: none;
-  padding: 5px 10px;
-  border-radius: 8px;
+  padding: 8px 25px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
   transition: 0.2s ease-in;
+  position: relative;
+  color: #1f2637;
+  background-color: #212a3e;
+  color: #9BA4B5;
+  border: 1px solid #9BA4B5;
 }
-body #startApp:hover {
-  background-color: rgb(211, 209, 209);
+body #startApp::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(118, 127, 146, 0.4235294118);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 0.3s ease-in-out;
+}
+body #startApp:hover::after {
+  transform: scaleX(1);
 }
 body #name-fake-input {
   border-radius: 8px;
@@ -64,4 +84,15 @@ body #name-fake-input .container select {
   border-radius: 8px;
   outline: none;
   border: none;
+}
+body #result {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+body #result #information {
+  text-align: start;
+  display: inline-flex;
+  flex-direction: column;
+  row-gap: 10px;
 }
