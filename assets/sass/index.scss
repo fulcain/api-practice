@@ -2,74 +2,72 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
 }
 // body
 body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: center;
+    background-color: #6c6c6c;
     // main
-    main {
-        // container
-        .container {
-            width: 50vw;
-            min-width: 400px;
-            margin: 0 auto;
+
+    // container
+    .container {
+        width: 50vw;
+        min-width: 400px;
+        margin: 0 auto;
+    }
+    #startApp{
+        cursor: pointer;
+        border: none;
+        outline: none;
+        padding: 5px 10px;
+        border-radius: 8px;
+        transition: .2s ease-in;
+        &:hover{
+            background-color: rgb(211, 209, 209);
         }
-        // name fake input
-        #name-fake-input {
-            color: white;
-            margin-top: 80px;
-            background-color: rgb(74, 117, 141);
-            border-radius: 8px;
-            padding: 20px;
-            // name fake container
-            .container {
+    }
+    // name fake input
+    #name-fake-input {
+        border-radius: 8px;
+        padding: 20px;
+        // name fake container
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .input-wrapper {
                 display: flex;
+                align-items: start;
                 flex-direction: column;
                 gap: 10px;
-                .input-wrapper {
-                    display: flex;
-                    align-items: start;
-                    flex-direction: column;
-                    gap: 10px;
-                    label {
-                        font-size: 20px;
-                        font-weight: 600;
-                    }
+                label {
+                    font-size: 20px;
+                    font-weight: 600;
                 }
-                .button-wrapper {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    button {
-                        transition: .2s ease-in-out;
-                        &:hover {
-                            background-color: rgb(186, 186, 186);
-                        }
-                    }
-                }
-                // generate btn
-                #generateBtn {
-                    cursor: pointer;
-                    border: none;
-                    outline: none;
-                    padding: 5px 10px;
-                    border-radius: 8px;
-                    max-width: fit-content;
-                }
-                // select
-                select::-ms-expand {
-                    display: none;
-                }
-                select {
-                    width: 100px;
-                    padding: 5px 10px 5px 5px;
-                    border-radius: 8px;
-                    outline: none;
-                    border: none;
-                }
+            }
+            // generate btn
+            #generateBtn {
+                cursor: pointer;
+                border: none;
+                outline: none;
+                padding: 5px 10px;
+                border-radius: 8px;
+                max-width: fit-content;
+            }
+            // select
+            select::-ms-expand {
+                display: none;
+            }
+            select {
+                width: 100px;
+                padding: 5px 10px 5px 5px;
+                border-radius: 8px;
+                outline: none;
+                border: none;
             }
         }
     }

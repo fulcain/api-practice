@@ -1,6 +1,31 @@
 import silverBox from "../libraries/silverBox_1.0.0-rc6_min/silverBox.min.js";
 
-silverBox({
-    title: 'YAMETE',
-    titleCustomIcon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_yiWd9F-_s4hjqq3Ql8dIoIR0Qu-_mSryqg&usqp=CAU"
+const oiOiOi = `
+<!-- input section -->
+<section id="name-fake-input">
+    <div class="container">
+        <!-- input wrapper -->
+        <div class="input-wrapper">
+            <!-- label -->
+            <label for="gender">Gender</label>
+            <!-- select -->
+            <select name="gender" id="gender">
+                <option value="random">random</option>
+                <option value="male">male</option>
+                <option value="female">female</option>
+            </select>
+        </div>
+    </div>
+</section>`
+const startApp = document.querySelector('#startApp')
+startApp.addEventListener("click",() =>{
+    silverBox({
+    silverBoxId:"nameFakeInput",
+    theme: "dark",
+    html: oiOiOi,
+    confirmButton:{
+        text:"generate",
+        closeOnClick:true
+    },
+})
 })

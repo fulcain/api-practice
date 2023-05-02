@@ -9,46 +9,45 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
+  background-color: #6c6c6c;
 }
-body main .container {
+body .container {
   width: 50vw;
   min-width: 400px;
   margin: 0 auto;
 }
-body main #name-fake-input {
-  color: white;
-  margin-top: 80px;
-  background-color: rgb(74, 117, 141);
+body #startApp {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+  border-radius: 8px;
+  transition: 0.2s ease-in;
+}
+body #startApp:hover {
+  background-color: rgb(211, 209, 209);
+}
+body #name-fake-input {
   border-radius: 8px;
   padding: 20px;
 }
-body main #name-fake-input .container {
+body #name-fake-input .container {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-body main #name-fake-input .container .input-wrapper {
+body #name-fake-input .container .input-wrapper {
   display: flex;
   align-items: start;
   flex-direction: column;
   gap: 10px;
 }
-body main #name-fake-input .container .input-wrapper label {
+body #name-fake-input .container .input-wrapper label {
   font-size: 20px;
   font-weight: 600;
 }
-body main #name-fake-input .container .button-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-body main #name-fake-input .container .button-wrapper button {
-  transition: 0.2s ease-in-out;
-}
-body main #name-fake-input .container .button-wrapper button:hover {
-  background-color: rgb(186, 186, 186);
-}
-body main #name-fake-input .container #generateBtn {
+body #name-fake-input .container #generateBtn {
   cursor: pointer;
   border: none;
   outline: none;
@@ -56,10 +55,10 @@ body main #name-fake-input .container #generateBtn {
   border-radius: 8px;
   max-width: fit-content;
 }
-body main #name-fake-input .container select::-ms-expand {
+body #name-fake-input .container select::-ms-expand {
   display: none;
 }
-body main #name-fake-input .container select {
+body #name-fake-input .container select {
   width: 100px;
   padding: 5px 10px 5px 5px;
   border-radius: 8px;
