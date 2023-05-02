@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
 }
 
 body {
@@ -15,27 +16,37 @@ body main .container {
   margin: 0 auto;
 }
 body main #name-fake-input {
+  color: white;
   margin-top: 80px;
-  background-color: rgb(174, 174, 174);
+  background-color: rgb(74, 117, 141);
   border-radius: 8px;
   padding: 20px;
 }
 body main #name-fake-input .container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   gap: 10px;
 }
 body main #name-fake-input .container .input-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: start;
+  flex-direction: column;
   gap: 10px;
 }
 body main #name-fake-input .container .input-wrapper label {
   font-size: 20px;
   font-weight: 600;
+}
+body main #name-fake-input .container .button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body main #name-fake-input .container .button-wrapper button {
+  transition: 0.2s ease-in-out;
+}
+body main #name-fake-input .container .button-wrapper button:hover {
+  background-color: rgb(186, 186, 186);
 }
 body main #name-fake-input .container #generateBtn {
   cursor: pointer;
@@ -43,6 +54,7 @@ body main #name-fake-input .container #generateBtn {
   outline: none;
   padding: 5px 10px;
   border-radius: 8px;
+  max-width: fit-content;
 }
 body main #name-fake-input .container select::-ms-expand {
   display: none;
