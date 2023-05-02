@@ -63,6 +63,8 @@ body {
     }
 
     // name fake input
+
+
     #name-fake-input {
         border-radius: 8px;
         padding: 20px;
@@ -120,6 +122,10 @@ body {
             display: inline-flex;
             flex-direction: column;
             row-gap: 10px;
+
+            div {
+                text-transform: capitalize;
+            }
         }
     }
 }

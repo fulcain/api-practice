@@ -5,7 +5,6 @@ const startApp = document.querySelector('#startApp')
 startApp.addEventListener("click", () => {
     // creating a popUp modal
     silverBox({
-        silverBoxId: "nameFakeInput",
         theme: "dark",
         html: inputTemplate(),
         confirmButton: {
@@ -20,44 +19,58 @@ startApp.addEventListener("click", () => {
 })
 
 // generate button event listener
+
+let genderArray = ['female', 'male']
+
 function generate() {
     // select generate button
     let generateBtn = document.querySelector("#generate-button")
+    let gender = document.querySelector('#gender')
 
     generateBtn.addEventListener('click', () => {
+        // gender selection
+        let userGender = gender.value
+
+        // selects gender randomly
+        if (userGender === 'random') {
+            userGender = genderArray[Math.floor(Math.random() * genderArray.length)]
+        }
+
+        // calls the apiCall
+        showFakeInfo(userGender)
+
+    })
+}
+
+function showFakeInfo(gender) {
+    let api = `https://api.namefake.com/english-united-states/${gender}`
+
+    // create xhr object
+    const xhr = new XMLHttpRequest()
+    // open 
+    xhr.open("GET", api, true)
+
+    let apiDataBase
+    // onload
+    xhr.onload = function () {
+        apiDataBase = JSON.parse(this.responseText)
+
         silverBox({
             title: "Result",
             theme: 'dark',
             removePrevLoadings: 'all',
             removePrevBoxes: 'all',
             customIconId: 'icon',
-            customIcon: "assets/images/male.svg",
+            html: resultTemplate(apiDataBase, gender),
+            customIcon: `assets/images/${gender}.svg`,
             centerContent: true,
+
         })
-
-    })
-}
-
-function apiCall() {
-
-    // create xhr object
-    const xhr = new XMLHttpRequest()
-
-    // open 
-    xhr.open("GET", "https://api.namefake.com/", false)
-
-    let apiDataBase
-    // onload
-    xhr.onload = function () {
-        apiDataBase = JSON.parse(this.responseText)
-        resultTemplate()
     }
     // send
     xhr.send()
     return apiDataBase
 }
-
-
 // templates
 function inputTemplate() {
     return (
@@ -71,9 +84,9 @@ function inputTemplate() {
                     <label for="gender">Gender</label>
                     <!-- select -->
                     <select name="gender" id="gender">
-                        <option value="random">random</option>
-                        <option value="male">male</option>
-                        <option value="female">female</option>
+                        <option value="random">Random</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
                     </select>
                 </div>
             </div>
@@ -81,14 +94,16 @@ function inputTemplate() {
     )
 }
 
-function resultTemplate() {
-    return (` <section id="result">
+function resultTemplate(response, userGender) {
+    return (` 
+    <section id="result">
         <div id="information">
-            <div>Name: ${apiCall().name}</div>
-            <div>Email: ${apiCall().email_d}</div>
-            <div>Height: ${apiCall().height}</div>
-            <div>Weight: ${apiCall().weight}</div>
-            <div>Phone: ${apiCall().phone_h}</div>
+            <div>Name: ${response.name}</div>
+            <div>Gender: ${userGender}</div>
+            <div>Email: ${response.email_d}</div>
+            <div>Height: ${response.height}</div>
+            <div>Weight: ${response.weight}</div>
+            <div>Phone: ${response.phone_h}</div>
         </div>
     </section>`
     )
