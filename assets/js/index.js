@@ -17,11 +17,9 @@ startApp.addEventListener("click", () => {
 
     // calling generate function
     generate()
-
-
 })
 
-// generate button event listner
+// generate button event listener
 function generate() {
     // select generate button
     let generateBtn = document.querySelector("#generate-button")
@@ -34,14 +32,30 @@ function generate() {
             removePrevBoxes: 'all',
             customIconId: 'icon',
             customIcon: "assets/images/male.svg",
-            html: resultTemplate(),
             centerContent: true,
         })
 
     })
 }
 
+function apiCall() {
 
+    // create xhr object
+    const xhr = new XMLHttpRequest()
+
+    // open 
+    xhr.open("GET", "https://api.namefake.com/", false)
+
+    let apiDataBase
+    // onload
+    xhr.onload = function () {
+        apiDataBase = JSON.parse(this.responseText)
+        resultTemplate()
+    }
+    // send
+    xhr.send()
+    return apiDataBase
+}
 
 
 // templates
@@ -66,15 +80,16 @@ function inputTemplate() {
         </section>`
     )
 }
+
 function resultTemplate() {
     return (` <section id="result">
         <div id="information">
-            <div>Name: </div>
-            <div>Gender: </div>
-            <div>Email: </div>
-            <div>Height: </div>
-            <div>Weight: </div>
-            <div>Phone: </div>
+            <div>Name: ${apiCall().name}</div>
+            <div>Email: ${apiCall().email_d}</div>
+            <div>Height: ${apiCall().height}</div>
+            <div>Weight: ${apiCall().weight}</div>
+            <div>Phone: ${apiCall().phone_h}</div>
         </div>
-    </section>`)
+    </section>`
+    )
 }
