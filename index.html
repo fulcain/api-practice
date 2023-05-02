@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE" ="edge" />
-        <meta
-            name="viewport"
-            content="width"
-            ="device-width,"
-            initial-scale="1.0"
-        />
-        <link rel="stylesheet" href="assets/css/index.css" />
-        <link rel="icon" href="assets/images/favicon.svg" />
-        <title>name fake api</title>
-    </head>
-    <body>
-        <main>
-            <!-- input section -->
-            <section id="name-fake-input">
-                <div class="container">
-                    <!-- input wrapper -->
-                    <div class="input-wrapper">
-                        <!-- label -->
-                        <label for="gender">Gender</label>
-                        <!-- select -->
-                        <select name="gender" id="gender">
-                            <option value="random">random</option>
-                            <option value="male">male</option>
-                            <option value="female">female</option>
-                        </select>
-                    </div>
-                    <div class="button-wrapper">
-                        <button id="generateBtn">Generate</button>
-                    </div>
+
+<head>
+    <meta charset=UTF-8 />
+    <meta http-equiv=X-UA-Compatible content=IE=edge />
+    <meta name=viewport content=width=device-width, initial-scale=1.0 />
+    <!-- main css -->
+    <link rel=stylesheet href="assets/css/index.css">
+    <!-- favicon -->
+    <link rel="icon" href="assets/images/favicon.svg">
+    <!-- silverBox css -->
+    <link rel="stylesheet" href="assets/libraries/silverBox_1.0.0-rc6_min/silverBox.min.css">
+    <title>name fake api</title>
+</head>
+
+<body>
+    <main>
+        <!-- input section -->
+        <section id="name-fake-input">
+            <div class="container">
+                <!-- input wrapper -->
+                <div class="input-wrapper">
+                    <!-- label -->
+                    <label for="gender">Gender</label>
+                    <!-- select -->
+                    <select name="gender" id="gender">
+                        <option value="random">random</option>
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                    </select>
                 </div>
-            </section>
-            <!-- output section -->
-            <section id="name-fake-output"></section>
-        </main>
-        <script src="assets/js/index.js"></script>
-    </body>
+                <button id="generateBtn">Generate</button>
+            </div>
+        </section>
+        <!-- output section -->
+        <section id="name-fake-output"></section>
+    </main>
+    <script type="module" src="assets/js/index.js"></script>
+</body>
+
 </html>
