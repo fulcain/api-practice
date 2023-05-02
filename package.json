@@ -1,0 +1,15 @@
+{
+  "name": "namefake-api-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass -w --no-source-map ./assets/sass:./assets/css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.62.1"
+  }
+}
