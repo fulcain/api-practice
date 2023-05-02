@@ -4,13 +4,14 @@
     box-sizing: border-box;
     font-family: "Courier New", Courier, monospace;
 }
+
 // body
 body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #6c6c6c;
+    background-color: #1f2637;
     // main
 
     // container
@@ -19,36 +20,43 @@ body {
         min-width: 400px;
         margin: 0 auto;
     }
-    #startApp{
+
+    #startApp {
         cursor: pointer;
         border: none;
         outline: none;
         padding: 5px 10px;
         border-radius: 8px;
         transition: .2s ease-in;
-        &:hover{
+
+        &:hover {
             background-color: rgb(211, 209, 209);
         }
     }
+
     // name fake input
     #name-fake-input {
         border-radius: 8px;
         padding: 20px;
+
         // name fake container
         .container {
             display: flex;
             flex-direction: column;
             gap: 10px;
+
             .input-wrapper {
                 display: flex;
                 align-items: start;
                 flex-direction: column;
                 gap: 10px;
+
                 label {
                     font-size: 20px;
                     font-weight: 600;
                 }
             }
+
             // generate btn
             #generateBtn {
                 cursor: pointer;
@@ -58,10 +66,12 @@ body {
                 border-radius: 8px;
                 max-width: fit-content;
             }
+
             // select
             select::-ms-expand {
                 display: none;
             }
+
             select {
                 width: 100px;
                 padding: 5px 10px 5px 5px;
