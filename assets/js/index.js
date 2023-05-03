@@ -64,6 +64,7 @@ function showFakeInfo(gender) {
             html: resultTemplate(apiDataBase, gender),
             customIcon: `assets/images/${gender}.svg`,
             centerContent: true,
+            showCloseButton: true
 
         })
     }
