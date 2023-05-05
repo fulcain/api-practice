@@ -1,13 +1,14 @@
 import silverBox from "../libraries/silverBox_1.0.0-rc6_min/silverBox.min.js";
 import apiCall from "./apiCall.js";
 
-const startButton = document.querySelector('#startApp')
+const nameFake = document.querySelector('#nameFake')
 
-startButton.addEventListener("click", () => {
+// name fake start button
+nameFake.addEventListener("click", () => {
     // creating a popUp modal
     silverBox({
         theme: "dark",
-        html: inputTemplate(),
+        html: fakeNameInputTemplate(),
         confirmButton: {
             buttonId: 'generate-button',
             text: "Generate",
@@ -38,7 +39,7 @@ function generate() {
         }
 
         // calls the apiCall
-
+        // api call for fakeName
         apiCall(`https://api.namefake.com/english-united-states/${userGender}`)
             .then(
                 (data) => {
@@ -47,20 +48,20 @@ function generate() {
                         theme: 'dark',
                         removePrevLoadings: 'all',
                         removePrevBoxes: 'all',
-                        customIconId: 'icon',
-                        html: resultTemplate(data, userGender),
+                        showCloseButton:true,
+                        html: fakeNameResultTemplate(data, userGender),
                         customIcon: `assets/images/${userGender}.svg`,
                         centerContent: true,
-
                     })
                 }
             )
-
     })
 }
 
 // templates
-function inputTemplate() {
+
+// fake name api inputTemplate
+function fakeNameInputTemplate() {
     return (
         `
         <!-- input section -->
@@ -82,7 +83,8 @@ function inputTemplate() {
     )
 }
 
-function resultTemplate(response, userGender) {
+// fakeName resultTemplate
+function fakeNameResultTemplate(response, userGender) {
     return (` 
     <section id="result">
         <div id="information">
