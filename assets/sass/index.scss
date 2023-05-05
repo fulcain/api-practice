@@ -2,129 +2,140 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Nunito', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Nunito', sans-serif;
 }
 
 // body
 body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1f2637;
-    // main
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #1f2637;
+	// main
 
-    // container
-    .container {
-        min-width: 400px;
-        margin: 0 auto;
-    }
+	// container
+	.container {
+		min-width: 400px;
+		margin: 0 auto;
+	}
 
-    .buttons {
-        cursor: pointer;
-        border: none;
-        outline: none;
-        padding: 8px 25px;
-        border-radius: 5px;
-        font-size: 20px;
-        font-weight: bold;
-        transition: .2s ease-in;
-        position: relative;
-        color: #1f2637;
-        background-color: #212a3e;
-        color: #9BA4B5;
-        border: 1px solid#9BA4B5;
+	#button-wrapper {
+		display: flex;
+		gap: 0 10px;
 
-        &::after {
-            position: absolute;
-            content: '';
-            left: 0;
-            top: 0;
-            border-radius: inherit;
-            width: 100%;
-            height: 100%;
-            background-color: #767f926c;
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: 0.3s ease-in-out;
-        }
+		.buttons {
+			cursor: pointer;
+			border: none;
+			outline: none;
+			padding: 8px 25px;
+			border-radius: 5px;
+			font-size: 20px;
+			font-weight: bold;
+			transition: .2s ease-in;
+			position: relative;
+			color: #1f2637;
+			background-color: #212a3e;
+			color: #9BA4B5;
+			border: 1px solid#9BA4B5;
 
-        &:hover {
+			&::after {
+				position: absolute;
+				content: '';
+				left: 0;
+				top: 0;
+				border-radius: inherit;
+				width: 100%;
+				height: 100%;
+				background-color: #767f926c;
+				transform: scaleX(0);
+				transform-origin: left;
+				transition: 0.3s ease-in-out;
+			}
 
-            &::after {
-                transform: scaleX(1);
+			&:hover {
 
-            }
-        }
-    }
+				&::after {
+					transform: scaleX(1);
 
-    // name fake input
+				}
+			}
+		}
 
+	}
 
-    #name-fake-input {
-        border-radius: 8px;
-        padding: 20px;
+	// name fake input
+	#name-fake-input,
+	#cat-and-dog-input {
+		border-radius: 8px;
+		padding: 20px;
 
-        // name fake container
-        .container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+		// name fake container
+		.container {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
 
-            .input-wrapper {
-                display: flex;
-                align-items: start;
-                flex-direction: column;
-                gap: 10px;
+			.input-wrapper {
+				display: flex;
+				align-items: start;
+				flex-direction: column;
+				gap: 10px;
 
-                label {
-                    font-size: 20px;
-                    font-weight: 600;
-                }
-            }
+				label {
+					font-size: 20px;
+					font-weight: 600;
+				}
+			}
 
-            // generate btn
-            #generateBtn {
-                cursor: pointer;
-                border: none;
-                outline: none;
-                padding: 5px 10px;
-                border-radius: 8px;
-                max-width: fit-content;
-            }
+			// generate btn
+			#generateBtn {
+				cursor: pointer;
+				border: none;
+				outline: none;
+				padding: 5px 10px;
+				border-radius: 8px;
+				max-width: fit-content;
+			}
 
-            // select
-            select::-ms-expand {
-                display: none;
-            }
+			// select
+			select::-ms-expand {
+				display: none;
+			}
 
-            select {
-                width: 100px;
-                padding: 5px 10px 5px 5px;
-                border-radius: 8px;
-                outline: none;
-                border: none;
-            }
-        }
-    }
+			select {
+				width: 100px;
+				padding: 5px 10px 5px 5px;
+				border-radius: 8px;
+				outline: none;
+				border: none;
+			}
+		}
+	}
 
-    #result {
-        display: flex;
-        align-items: center;
-        width: 100%;
+	#result {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
 
-        #information {
-            text-align: start;
-            display: inline-flex;
-            flex-direction: column;
-            row-gap: 10px;
+		#animal-image {
+			max-width: 200px;
+			border-radius: 10px;
+		}
 
-            div {
-                text-transform: capitalize;
-            }
-        }
-    }
+		#information {
+			text-align: start;
+			display: inline-flex;
+			flex-direction: column;
+			row-gap: 10px;
+
+			div {
+				text-transform: capitalize;
+			}
+		}
+	}
 }

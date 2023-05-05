@@ -17,7 +17,11 @@ body .container {
   min-width: 400px;
   margin: 0 auto;
 }
-body .buttons {
+body #button-wrapper {
+  display: flex;
+  gap: 0 10px;
+}
+body #button-wrapper .buttons {
   cursor: pointer;
   border: none;
   outline: none;
@@ -32,7 +36,7 @@ body .buttons {
   color: #9BA4B5;
   border: 1px solid #9BA4B5;
 }
-body .buttons::after {
+body #button-wrapper .buttons::after {
   position: absolute;
   content: "";
   left: 0;
@@ -45,29 +49,34 @@ body .buttons::after {
   transform-origin: left;
   transition: 0.3s ease-in-out;
 }
-body .buttons:hover::after {
+body #button-wrapper .buttons:hover::after {
   transform: scaleX(1);
 }
-body #name-fake-input {
+body #name-fake-input,
+body #cat-and-dog-input {
   border-radius: 8px;
   padding: 20px;
 }
-body #name-fake-input .container {
+body #name-fake-input .container,
+body #cat-and-dog-input .container {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-body #name-fake-input .container .input-wrapper {
+body #name-fake-input .container .input-wrapper,
+body #cat-and-dog-input .container .input-wrapper {
   display: flex;
   align-items: start;
   flex-direction: column;
   gap: 10px;
 }
-body #name-fake-input .container .input-wrapper label {
+body #name-fake-input .container .input-wrapper label,
+body #cat-and-dog-input .container .input-wrapper label {
   font-size: 20px;
   font-weight: 600;
 }
-body #name-fake-input .container #generateBtn {
+body #name-fake-input .container #generateBtn,
+body #cat-and-dog-input .container #generateBtn {
   cursor: pointer;
   border: none;
   outline: none;
@@ -75,10 +84,12 @@ body #name-fake-input .container #generateBtn {
   border-radius: 8px;
   max-width: fit-content;
 }
-body #name-fake-input .container select::-ms-expand {
+body #name-fake-input .container select::-ms-expand,
+body #cat-and-dog-input .container select::-ms-expand {
   display: none;
 }
-body #name-fake-input .container select {
+body #name-fake-input .container select,
+body #cat-and-dog-input .container select {
   width: 100px;
   padding: 5px 10px 5px 5px;
   border-radius: 8px;
@@ -88,7 +99,12 @@ body #name-fake-input .container select {
 body #result {
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 100%;
+}
+body #result #animal-image {
+  max-width: 200px;
+  border-radius: 10px;
 }
 body #result #information {
   text-align: start;

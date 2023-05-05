@@ -2,6 +2,7 @@ import silverBox from "../libraries/silverBox_1.0.0-rc6_min/silverBox.min.js";
 import apiCall from "./apiCall.js";
 
 const nameFake = document.querySelector('#nameFake')
+const catAndDog = document.querySelector("#catAndDog")
 
 // name fake start button
 nameFake.addEventListener("click", () => {
@@ -17,17 +18,34 @@ nameFake.addEventListener("click", () => {
     })
 
     // calling generate function
-    generate()
+    showNameFake()
 })
 
-// generate button event listener
+// cat and dog start button 
+catAndDog.addEventListener('click', () => {
+    // create popUp modal
+    silverBox({
+        theme: "dark",
+        html: catAndDogInputTemplate(),
+        confirmButton: {
+            buttonId: 'show-image',
+            text: "Show image",
+            closeOnClick: false
+        },
+    })
+    // calls show catAndDog function
+    showCatAndDog()
+})
 
+// genders array
 let genderArray = ['female', 'male']
 
-function generate() {
+// generates the the result modal after gathering information from apiCall and gender selection
+
+function showNameFake() {
     // select generate button
-    let generateBtn = document.querySelector("#generate-button")
-    let gender = document.querySelector('#gender')
+    const generateBtn = document.querySelector("#generate-button")
+    const gender = document.querySelector('#gender')
 
     generateBtn.addEventListener('click', () => {
         // gender selection
@@ -48,7 +66,7 @@ function generate() {
                         theme: 'dark',
                         removePrevLoadings: 'all',
                         removePrevBoxes: 'all',
-                        showCloseButton:true,
+                        showCloseButton: true,
                         html: fakeNameResultTemplate(data, userGender),
                         customIcon: `assets/images/${userGender}.svg`,
                         centerContent: true,
@@ -57,7 +75,40 @@ function generate() {
             )
     })
 }
+// Generates dog and cat pic after the dog/cat selection 
 
+function showCatAndDog() {
+    // select show image button 
+    const showImage = document.querySelector('#show-image')
+    const catAndDog = document.querySelector("#cat-and-dog")
+
+
+    showImage.addEventListener('click', () => {
+        // stores the select value inside the catAndDogValue variable
+        let catAndDogValue = catAndDog.value
+
+        apiCall(`https://api.the${catAndDogValue}api.com/v1/images/search`)
+            .then(
+                response => {
+                    return response[0]
+                })
+            .then(
+                finalResponse => {
+                    silverBox({
+                        theme: 'dark',
+                        html: catAndDogResultTemplate(finalResponse.url),
+                        denyButton: {
+                            text: 'Go back',
+                            closeOnClick: true,
+                        },
+                        removePrevLoadings: 'last'
+                    })
+                }
+
+            )
+
+    })
+}
 // templates
 
 // fake name api inputTemplate
@@ -96,5 +147,36 @@ function fakeNameResultTemplate(response, userGender) {
             <div>Phone: ${response.phone_h}</div>
         </div>
     </section>`
+    )
+}
+// cat and dog Input template
+function catAndDogInputTemplate() {
+    return (
+        `
+        <!-- input section -->
+        <section id="cat-and-dog-input">
+            <div class="container">
+                <!-- input wrapper -->
+                <div class="input-wrapper">
+                    <!-- label -->
+                    <label for="cat-and-dog">Animal</label>
+                    <!-- select -->
+                    <select name="cat-and-dog" id="cat-and-dog">
+                        <option value="cat">Cat</option>
+                        <option value="dog">Dog</option>
+                    </select>
+                </div>
+            </div>
+        </section>`
+    )
+}
+// cat and dog resultTemplate 
+function catAndDogResultTemplate(imageUrl) {
+    return (
+        ` 
+    <section id="result">
+        <img id="animal-image" src="${imageUrl}">
+    </section>
+    `
     )
 }
