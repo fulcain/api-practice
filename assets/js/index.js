@@ -1,8 +1,9 @@
 import silverBox from "../libraries/silverBox_1.0.0-rc6_min/silverBox.min.js";
+import apiCall from "./apiCall.js";
 
-const startApp = document.querySelector('#startApp')
+const startButton = document.querySelector('#startApp')
 
-startApp.addEventListener("click", () => {
+startButton.addEventListener("click", () => {
     // creating a popUp modal
     silverBox({
         theme: "dark",
@@ -37,41 +38,27 @@ function generate() {
         }
 
         // calls the apiCall
-        showFakeInfo(userGender)
+
+        apiCall(`https://api.namefake.com/english-united-states/${userGender}`)
+            .then(
+                (data) => {
+                    silverBox({
+                        title: "Result",
+                        theme: 'dark',
+                        removePrevLoadings: 'all',
+                        removePrevBoxes: 'all',
+                        customIconId: 'icon',
+                        html: resultTemplate(data, userGender),
+                        customIcon: `assets/images/${userGender}.svg`,
+                        centerContent: true,
+
+                    })
+                }
+            )
 
     })
 }
 
-function showFakeInfo(gender) {
-    let api = `https://api.namefake.com/english-united-states/${gender}`
-
-    // create xhr object
-    const xhr = new XMLHttpRequest()
-    // open 
-    xhr.open("GET", api, true)
-
-    let apiDataBase
-    // onload
-    xhr.onload = function () {
-        apiDataBase = JSON.parse(this.responseText)
-
-        silverBox({
-            title: "Result",
-            theme: 'dark',
-            removePrevLoadings: 'all',
-            removePrevBoxes: 'all',
-            customIconId: 'icon',
-            html: resultTemplate(apiDataBase, gender),
-            customIcon: `assets/images/${gender}.svg`,
-            centerContent: true,
-            showCloseButton: true
-
-        })
-    }
-    // send
-    xhr.send()
-    return apiDataBase
-}
 // templates
 function inputTemplate() {
     return (
