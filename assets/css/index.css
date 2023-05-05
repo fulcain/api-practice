@@ -49,6 +49,9 @@ body #button-wrapper .buttons::after {
   transform-origin: left;
   transition: 0.3s ease-in-out;
 }
+body #button-wrapper .buttons:last-of-type::after {
+  transform-origin: right;
+}
 body #button-wrapper .buttons:hover::after {
   transform: scaleX(1);
 }
